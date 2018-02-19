@@ -91,33 +91,6 @@
     "total_submitted": 1759425
   },
   {
-    "id": 5,
-    "title": "Longest Palindromic Substring",
-    "url": "https://leetcode.com/problems/longest-palindromic-substring/description",
-    "companyTags": [
-      "Microsoft",
-      "Amazon",
-      "Bloomberg"
-    ],
-    "difficulty": "Medium",
-    "content": "Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.\r\n\r\nExample:\r\n\r\n\r\nInput: \"babad\"\r\n\r\nOutput: \"bab\"\r\n\r\nNote: \"aba\" is also a valid answer.\r\n\r\n\r\n \r\n\r\nExample:\r\n\r\n\r\nInput: \"cbbd\"\r\n\r\nOutput: \"bb\"\r\n\r\n\r\n ",
-    "discussUrl": "https://discuss.leetcode.com/category/13",
-    "similarQuestions": [
-      "ShortestPalindrome",
-      "PalindromePermutation",
-      "PalindromePairs",
-      "LongestPalindromicSubsequence",
-      "PalindromicSubstrings"
-    ],
-    "topicTags": [
-      "String",
-      "DynamicProgramming"
-    ],
-    "Solution": "class Solution {\n    int len = 0, maxLength = 0, init = 0;\n    public String longestPalindrome(String s) {\n        char[] chars = s.toCharArray();\n        len = s.length();\n        if (len <= 1) return s;\n        for (int i = 0; i < len; i++) {\n            i = manacher(chars, i);\n        }\n        return s.substring(init, init + maxLength);\n    }\n    public int manacher(char[] chars, int k) {\n        int i = k - 1, j = k;\n        while (j < len - 1 && chars[j] == chars[j + 1]) j++;\n        int nextCenter = j++;\n        while (i >= 0 && j < len && chars[i] == chars[j]) {\n            i--;\n            j++;\n        }\n        if (j - i - 1 > maxLength) {\n            maxLength = j - i - 1;\n            init = i + 1;\n        }\n        return nextCenter;\n    }\n}",
-    "total_acs": 282779,
-    "total_submitted": 1124028
-  },
-  {
     "id": 6,
     "title": "ZigZag Conversion",
     "url": "https://leetcode.com/problems/zigzag-conversion/description",
